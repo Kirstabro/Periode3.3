@@ -10,9 +10,12 @@ namespace EmonApi.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        public string EquipmentID { get; set;}
+         [BsonElement("MQTT_USER")]
+        public string MqttUser {get; set;}
+        public string Equipment_id { get; set;}
+        public int Time { get; set; }
 
-        public DateTime Date { get; set; }
+        public string P1_output_version_information {get ; set; }
 
         public double MeterReadingToClientTariff1 { get; set; }
 

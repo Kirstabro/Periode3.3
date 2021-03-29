@@ -38,6 +38,7 @@ namespace EmonApi
             
             services.AddSingleton<SmartmeterPacketService>();
             services.AddSingleton<PowerdataService>();
+            services.AddSingleton<SensordataService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

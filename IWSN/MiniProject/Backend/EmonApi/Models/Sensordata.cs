@@ -1,10 +1,9 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
 
 namespace EmonApi.Models
 {
-    public class Powerdata
+    public class Sensordata
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -13,8 +12,7 @@ namespace EmonApi.Models
         [BsonElement("MQTT_USER")]
         public string MqttUser {get; set;}
         public int Time { get; set; }
-        public string Actual_electricity_power_delivered_plus {get; set;}
-
-        public string Actual_electricity_power_received_min {get; set;}
+        public int Temperature {get; set;}
+        public int Humidity {get; set;}
     }
 }
