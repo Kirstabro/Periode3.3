@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Sensordata } from '../Datapackets';
+import { Powerdata, Sensordata } from '../Datapackets';
+import { Timespan } from '../enum';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,12 @@ export class GraphHelperService {
 
   constructor() { }
 
-  maxDatapoints = 30;
+  maxDatapoints = 150;
 
   getLabels(sensors: Sensordata[]): string[]
   {
     let labels: string[] = [];
+    let maxPoints: number = 100;
     sensors.map(data =>
       {
         let startHourDate : Date = new Date();
@@ -20,11 +22,11 @@ export class GraphHelperService {
             labels.push(startHourDate.toLocaleTimeString());
       });
 
-    if (labels.length > this.maxDatapoints)
+    if (labels.length > maxPoints)
     {
       labels = labels.filter((data, index) =>
       {
-        if (index % Math.floor(labels.length / this.maxDatapoints) == 0){
+        if (index % Math.floor(sensors.length / maxPoints) == 0){
           return data;
         } else {return;}
       });
@@ -35,14 +37,16 @@ export class GraphHelperService {
   getHums(sensors: Sensordata[]): number[]
   {
     let humidities: number[] = [];
+    let maxPoints: number = 100;
+
     sensors.map(data =>
       humidities.push(data.humidity));
 
-    if (humidities.length > this.maxDatapoints)
+    if (humidities.length > maxPoints)
     {
       humidities = humidities.filter((data, index) =>
       {
-        if (index % Math.floor(humidities.length / this.maxDatapoints) == 0){
+        if (index % Math.floor(sensors.length / maxPoints) == 0){
           return data;
         } else {return;}
       });
@@ -50,23 +54,101 @@ export class GraphHelperService {
     return humidities;
   }
 
-
   getTemps(sensors: Sensordata[]): number[]
   {
     let temperatures: number[] = [];
+    let maxPoints: number = 100;
+
     sensors.map(data =>
       temperatures.push(data.temperature));
 
-    if (temperatures.length > this.maxDatapoints)
-    {
-      temperatures = temperatures.filter((data, index) =>
+      if (temperatures.length > maxPoints)
       {
-        if (index % Math.floor(temperatures.length / this.maxDatapoints) == 0){
+        temperatures = temperatures.filter((data, index) =>
+        {
+          if (index % Math.floor(sensors.length / maxPoints) == 0){
+            return data;
+          } else {return;}
+        });
+      }
+    return temperatures;
+  }
+
+  getLabels2(powerdata: Powerdata[]): string[]
+  {
+    let labels: string[] = [];
+    let maxPoints: number = 100;
+    powerdata.map(data =>
+      {
+        let startHourDate : Date = new Date();
+            startHourDate.setTime(data.time * 1000);
+            labels.push(startHourDate.toLocaleTimeString());
+      });
+
+    if (labels.length > maxPoints)
+    {
+      labels = labels.filter((data, index) =>
+      {
+        if (index % Math.floor(powerdata.length / maxPoints) == 0){
           return data;
         } else {return;}
       });
     }
-    return temperatures;
+    return labels;
   }
 
+  getOut(powerdata: Powerdata[]): number[]
+  {
+    let received: number[] = [];
+    let maxPoints: number = 100;
+
+    powerdata.map(data =>
+      {
+        let power : number = 0;
+        let substring : string = data.actual_electricity_power_received_min;
+          substring = substring.substr(0, substring.length-3);
+          power = parseFloat(substring);
+          received.push(power);
+      });
+
+    if (received.length > maxPoints)
+    {
+      received = received.filter((data, index) =>
+      {
+        if (index % Math.floor(powerdata.length / maxPoints) == 0){
+          return data;
+        } else {return;}
+      });
+    }
+    console.log("RECEIVED: ", received);
+
+    return received;
+  }
+
+  getIn(powerdata: Powerdata[]): number[]
+  {
+    let delivered: number[] = [];
+    let maxPoints: number = 10;
+
+    powerdata.map(data =>
+      {
+        let power : number = 0;
+        let substring : string = data.actual_electricity_power_delivered_plus;
+          substring = substring.substr(0, substring.length-3);
+          power = parseFloat(substring);
+        delivered.push(power);
+      });
+
+      if (delivered.length > maxPoints)
+      {
+        delivered = delivered.filter((data, index) =>
+        {
+          if (index % Math.floor(powerdata.length / maxPoints) == 0){
+            return data;
+          } else {return;}
+        });
+      }
+      console.log("DELIVERED: ", delivered);
+    return delivered;
+  }
 }
