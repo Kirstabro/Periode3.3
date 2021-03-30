@@ -32,6 +32,8 @@ export class GraphHelperService {
       });
     }
     return labels;
+
+    
   }
 
   getHums(sensors: Sensordata[]): number[]
@@ -109,7 +111,7 @@ export class GraphHelperService {
           substring = substring.substr(0, substring.length-3);
           power = parseFloat(substring);
           received.push(power);
-      });
+      })
 
     if (received.length > maxPoints)
     {
@@ -128,7 +130,7 @@ export class GraphHelperService {
   getIn(powerdata: Powerdata[]): number[]
   {
     let delivered: number[] = [];
-    let maxPoints: number = 10;
+    let maxPoints: number = 100;
 
     powerdata.map(data =>
       {
@@ -137,7 +139,7 @@ export class GraphHelperService {
           substring = substring.substr(0, substring.length-3);
           power = parseFloat(substring);
         delivered.push(power);
-      });
+      })
 
       if (delivered.length > maxPoints)
       {

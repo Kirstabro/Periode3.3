@@ -77,21 +77,21 @@ export class HistorydataComponent implements OnInit {
       .subscribe(data => {
         this.powerdata = data as Powerdata[];
         console.log(this.powerdata);
-        this.updateChart();
       });
 
+      this.updateChart();
 
     this.eventhelper.$hour.subscribe(data => {
       this.setSensorChartTime(Timespan.Hour);
-      this.setPowerChartTime(Timespan.Hour)
+      this.setPowerChartTime(Timespan.Hour);
     });
     this.eventhelper.$day.subscribe(data => {
       this.setSensorChartTime(Timespan.Day);
-      this.setPowerChartTime(Timespan.Day)
+      this.setPowerChartTime(Timespan.Day);
     });
     this.eventhelper.$week.subscribe(data => {
       this.setSensorChartTime(Timespan.Week);
-      this.setPowerChartTime(Timespan.Week)
+      this.setPowerChartTime(Timespan.Week);
     });
 
   }
@@ -102,7 +102,7 @@ export class HistorydataComponent implements OnInit {
     this.powerdata.map(data => {
       let substring: string = data.actual_electricity_power_received_min;
       substring = substring.substr(0, substring.length - 3);
-      temp += +((parseFloat(substring) / 20) * 0.22);
+      temp += +((parseFloat(substring) / 180) * 0.22);
     });
 
     this.costtotal = temp;

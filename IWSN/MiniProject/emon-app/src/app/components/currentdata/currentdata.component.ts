@@ -30,8 +30,8 @@ export class CurrentdataComponent implements OnInit {
 
   currentDate : string = "";
   currentTime : string = "";
-  currentTemp : string = "";
-  currentHum  : string = "";
+  currentTemp? : number;
+  currentHum?  : number;
 
   constructor(
     private httpHelper: EmonApiService
@@ -54,15 +54,19 @@ export class CurrentdataComponent implements OnInit {
 
   getLastSensorData(){
     console.log(this.currentPower.time);
-    this.httpHelper.getLastSensordata(this.currentPower.time).subscribe(data =>
+    this.httpHelper.getLastSensordata().subscribe(data =>
       {
-        if (data.length){this.currentSensor = data[0];} else {this.updateSensor();}
+        if (data.length){
+          this.currentSensor = data[0];
+          this.currentTemp = this.currentSensor.temperature;
+          this.currentHum = this.currentSensor.humidity;
+        } else {this.updateSensor();}
       });
   }
 
   updateSensor(){
-    this.currentTemp = "No temperature sensor connected!";
-    this.currentHum = "No humidity sensor connected!";
+    this.currentTemp = 0;
+    this.currentHum = 0;
   }
 
   updateDate(){

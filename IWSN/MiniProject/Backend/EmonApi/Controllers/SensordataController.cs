@@ -16,21 +16,16 @@ namespace EmonApi.Controllers
             _sensordataService = sensordataService;
         }
 
+       
+
         [HttpGet]
         public ActionResult<List<Sensordata>> Get() =>
             _sensordataService.Get();
 
-        [HttpGet ("last/{time}")]
-        public ActionResult<Sensordata> GetLast(int time)
-        {
-            var sensordata = _sensordataService.GetLast(time);
+        [HttpGet ("last")]
+        public ActionResult<List<Sensordata>> GetLast() =>
+            _sensordataService.GetLast();    
 
-            if (sensordata == null)
-            {
-                return NotFound();
-            }
-            return sensordata;
-        }
 
         [HttpGet("{id:length(24)}", Name = "GetSensorData")]
         public ActionResult<Sensordata> Get(string id)

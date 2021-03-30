@@ -37,7 +37,7 @@ export class EmonApiService {
     console.log("Get Sensordata");
     console.log(this.api_url + this.sensor_url);
     return this.http.get<Sensordata[]>(this.api_url + this.sensor_url).pipe(
-      catchError(this.handleError<any[]>('getSensordata', []))
+      catchError(this.handleError<Sensordata[]>('getSensordata', []))
     );
   }  
 
@@ -50,9 +50,9 @@ export class EmonApiService {
   }
 
     /* GET: return all sensordata */
-    getLastSensordata(time : number): Observable<Sensordata[]> {
+    getLastSensordata(): Observable<Sensordata[]> {
       console.log("Get Last Sensordata");
-      return this.http.get<Sensordata[]>(this.api_url + this.sensor_url + "/last/" + time).pipe(
+      return this.http.get<Sensordata[]>(this.api_url + this.sensor_url + "/last").pipe(
         catchError(this.handleError<any[]>('getLastSensordata', []))
       );
     }  
