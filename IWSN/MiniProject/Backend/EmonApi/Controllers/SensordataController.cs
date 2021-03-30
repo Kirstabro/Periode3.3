@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using EmonApi.Services;
 
-
 namespace EmonApi.Controllers
 {
     [Route("api/[controller]")]
@@ -21,6 +20,18 @@ namespace EmonApi.Controllers
         public ActionResult<List<Sensordata>> Get() =>
             _sensordataService.Get();
 
+        [HttpGet ("last/{time}")]
+        public ActionResult<Sensordata> GetLast(int time)
+        {
+            var sensordata = _sensordataService.GetLast(time);
+
+            if (sensordata == null)
+            {
+                return NotFound();
+            }
+            return sensordata;
+        }
+
         [HttpGet("{id:length(24)}", Name = "GetSensorData")]
         public ActionResult<Sensordata> Get(string id)
         {
@@ -30,7 +41,6 @@ namespace EmonApi.Controllers
             {
                 return NotFound();
             }
-
             return sensordata;
         }
 

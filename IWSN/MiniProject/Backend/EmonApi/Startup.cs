@@ -20,6 +20,8 @@ namespace EmonApi
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -41,6 +43,17 @@ namespace EmonApi
             services.AddSingleton<SensordataService>();
 
             services.AddControllers();
+            
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                    builder => 
+                    {
+                        builder.WithOrigins("http://localhost:4200",
+                                            "https://localhost:5001");
+                    });
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EmonApi", Version = "v1" });
@@ -63,6 +76,8 @@ namespace EmonApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseEndpoints(endpoints =>
             {

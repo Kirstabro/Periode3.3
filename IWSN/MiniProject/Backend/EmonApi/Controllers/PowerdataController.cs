@@ -17,6 +17,7 @@ namespace EmonApi.Controllers
             _powerdataService = powerdataService;
         }
 
+
         [HttpGet]
         public ActionResult<List<Powerdata>> Get() =>
             _powerdataService.Get();
@@ -34,12 +35,18 @@ namespace EmonApi.Controllers
             return powerdata;
         }
 
+        [HttpGet("last")]
+        public ActionResult<List<Powerdata>> GetLast()
+        {
+            return _powerdataService.GetLast();
+        }
+
         [HttpPost]
         public ActionResult<Powerdata> Create(Powerdata powerdata)
         {
             _powerdataService.Create(powerdata);
 
-            return CreatedAtRoute("GetPowerdata", new { id = powerdata.Id.ToString() }, powerdata);
+            return CreatedAtRoute("PostPowerdata", new { id = powerdata.Id.ToString() }, powerdata);
         }
 
         [HttpPut("{id:length(24)}")]

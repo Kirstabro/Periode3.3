@@ -39,3 +39,9 @@ D:\School\3.3\Git\Periode3.3\Periode3.3\IWSN\MiniProject\Backend\EmonApi\obj\Deb
 D:\School\3.3\Git\Periode3.3\Periode3.3\IWSN\MiniProject\Backend\EmonApi\obj\Debug\net5.0\ref\EmonApi.dll
 D:\School\3.3\Git\Periode3.3\Periode3.3\IWSN\MiniProject\Backend\EmonApi\obj\Debug\net5.0\EmonApi.pdb
 D:\School\3.3\Git\Periode3.3\Periode3.3\IWSN\MiniProject\Backend\EmonApi\obj\Debug\net5.0\EmonApi.genruntimeconfig.cache
+D:\School\3.3\Git\Periode3.3\Periode3.3\IWSN\MiniProject\Backend\EmonApi\bin\Debug\net5.0\System.Web.Cors.dll
+D:\School\3.3\Git\Periode3.3\Periode3.3\IWSN\MiniProject\Backend\EmonApi\bin\Debug\net5.0\System.Net.Http.Formatting.dll
+D:\School\3.3\Git\Periode3.3\Periode3.3\IWSN\MiniProject\Backend\EmonApi\bin\Debug\net5.0\System.Web.Http.dll
+D:\School\3.3\Git\Periode3.3\Periode3.3\IWSN\MiniProject\Backend\EmonApi\bin\Debug\net5.0\System.Web.Http.Cors.dll
+D:\School\3.3\Git\Periode3.3\Periode3.3\IWSN\MiniProject\Backend\EmonApi\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\School\3.3\Git\Periode3.3\Periode3.3\IWSN\MiniProject\Backend\EmonApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

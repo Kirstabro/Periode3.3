@@ -23,6 +23,9 @@ namespace EmonApi.Services
         public Sensordata Get(string id) =>
             _sensordata.Find<Sensordata>(sensordata => sensordata.Id == id).FirstOrDefault();
 
+        public Sensordata GetLast(int time) =>
+            _sensordata.Find<Sensordata>(sensordata => sensordata.Time == time).FirstOrDefault();
+
         public Sensordata Create(Sensordata sensordata)
         {
             _sensordata.InsertOne(sensordata);

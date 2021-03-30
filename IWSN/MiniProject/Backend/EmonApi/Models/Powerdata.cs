@@ -14,7 +14,7 @@ namespace EmonApi.Models
         public string MqttUser {get; set;}
         public int Time { get; set; }
         public string Actual_electricity_power_delivered_plus {get; set;}
-
         public string Actual_electricity_power_received_min {get; set;}
+        
     }
 }
