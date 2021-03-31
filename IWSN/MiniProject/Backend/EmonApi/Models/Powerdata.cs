@@ -10,10 +10,11 @@ namespace EmonApi.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        public DateTime Date { get; set; }
-
-        public double Actual_electricity_power_delivered_plus {get; set;}
-
-        public double Actual_electicity_power_recieved_min {get; set;}
+        [BsonElement("MQTT_USER")]
+        public string MqttUser {get; set;}
+        public int Time { get; set; }
+        public string Actual_electricity_power_delivered_plus {get; set;}
+        public string Actual_electricity_power_received_min {get; set;}
+        
     }
 }

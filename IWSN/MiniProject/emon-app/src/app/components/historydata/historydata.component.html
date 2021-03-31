@@ -1,0 +1,28 @@
+<app-buttons></app-buttons>
+
+<div>
+  Totale kosten: €{{costtotal | number:'.2'}}
+</div>
+
+<div class="chart-wrapper">
+  <canvas baseChart 
+      [datasets]="lineChartData" 
+      [labels]="lineChartLabels" 
+      [options]="lineChartOptions"
+      [colors]="lineChartColors" 
+      [legend]="lineChartLegend" 
+      [chartType]="lineChartType" 
+      [plugins]="lineChartPlugins">
+  </canvas>
+  
+  <div class="chart-wrapper">
+    <canvas baseChart 
+        [datasets]="lineChartData2" 
+        [labels]="lineChartLabels2" 
+        [options]="lineChartOptions"
+        [colors]="lineChartColors" 
+        [legend]="lineChartLegend" 
+        [chartType]="lineChartType" 
+        [plugins]="lineChartPlugins">
+    </canvas>
+  </div>

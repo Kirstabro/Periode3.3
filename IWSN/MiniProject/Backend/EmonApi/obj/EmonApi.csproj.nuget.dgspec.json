@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\School\\3.3\\Git\\Periode3.3\\Periode3.3\\IWSN\\MiniProject\\Backend\\EmonApi\\EmonApi.csproj": {}
+    "C:\\Users\\jelme\\Documents\\Avans_stuff\\Jaar_3\\Periode_3.3\\Iwsn\\KirstenJelmerGit\\Periode3.3\\IWSN\\MiniProject\\Backend\\EmonApi\\EmonApi.csproj": {}
   },
   "projects": {
-    "D:\\School\\3.3\\Git\\Periode3.3\\Periode3.3\\IWSN\\MiniProject\\Backend\\EmonApi\\EmonApi.csproj": {
+    "C:\\Users\\jelme\\Documents\\Avans_stuff\\Jaar_3\\Periode_3.3\\Iwsn\\KirstenJelmerGit\\Periode3.3\\IWSN\\MiniProject\\Backend\\EmonApi\\EmonApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\School\\3.3\\Git\\Periode3.3\\Periode3.3\\IWSN\\MiniProject\\Backend\\EmonApi\\EmonApi.csproj",
+        "projectUniqueName": "C:\\Users\\jelme\\Documents\\Avans_stuff\\Jaar_3\\Periode_3.3\\Iwsn\\KirstenJelmerGit\\Periode3.3\\IWSN\\MiniProject\\Backend\\EmonApi\\EmonApi.csproj",
         "projectName": "EmonApi",
-        "projectPath": "D:\\School\\3.3\\Git\\Periode3.3\\Periode3.3\\IWSN\\MiniProject\\Backend\\EmonApi\\EmonApi.csproj",
-        "packagesPath": "C:\\Users\\Kirstabro\\.nuget\\packages\\",
-        "outputPath": "D:\\School\\3.3\\Git\\Periode3.3\\Periode3.3\\IWSN\\MiniProject\\Backend\\EmonApi\\obj\\",
+        "projectPath": "C:\\Users\\jelme\\Documents\\Avans_stuff\\Jaar_3\\Periode_3.3\\Iwsn\\KirstenJelmerGit\\Periode3.3\\IWSN\\MiniProject\\Backend\\EmonApi\\EmonApi.csproj",
+        "packagesPath": "C:\\Users\\jelme\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jelme\\Documents\\Avans_stuff\\Jaar_3\\Periode_3.3\\Iwsn\\KirstenJelmerGit\\Periode3.3\\IWSN\\MiniProject\\Backend\\EmonApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Kirstabro\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\jelme\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNet.WebApi.Cors": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.12.1, )"

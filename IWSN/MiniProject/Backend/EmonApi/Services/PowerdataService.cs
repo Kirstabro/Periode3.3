@@ -23,6 +23,12 @@ namespace EmonApi.Services
         public Powerdata Get(string id) =>
             _powerdata.Find<Powerdata>(powerdata => powerdata.Id == id).FirstOrDefault();
 
+        public List<Powerdata> GetLast() =>
+            _powerdata.Find<Powerdata>(data => true)
+                        .SortByDescending(data => data.Time)
+                        .Limit(1)
+                        .ToList();
+                        
         public Powerdata Create(Powerdata powerdata)
         {
             _powerdata.InsertOne(powerdata);

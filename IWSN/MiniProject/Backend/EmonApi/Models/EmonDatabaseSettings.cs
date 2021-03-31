@@ -4,6 +4,9 @@ namespace EmonApi.Models
     {
         public string SmartmeterPacketsCollectionName { get; set; }
         public string PowerdataCollectionName {get ; set;}
+
+        public string SensordataCollectionName {get ; set;}
+
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
     }
@@ -12,6 +15,8 @@ namespace EmonApi.Models
     {
         string SmartmeterPacketsCollectionName { get; set; }
         string PowerdataCollectionName {get ; set; }
+    
+        string SensordataCollectionName {get ; set;}
         string ConnectionString { get; set; }
         string DatabaseName { get; set; }
     }
